@@ -9,6 +9,8 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+gem 'haml-rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
