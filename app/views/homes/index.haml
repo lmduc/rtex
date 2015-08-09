@@ -8,12 +8,7 @@
 
 :javascript
   $(function() {
-    window.records = [];
-    window.start = (new Date()).getTime();
-
-    $('#text-me').keyup(function() {
-      window.records.push({ time: (new Date()).getTime() - window.start, text: $(this).val() });
-    });
+    Record.apply('#text-me');
 
     $('#click-me').click(function() {
       window.records.forEach(function(record) {

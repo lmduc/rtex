@@ -1,0 +1,25 @@
+var Record = (function() {
+  var initRecord = function(element) {
+    window.records = [];
+    window.start = (new Date()).getTime();
+  }
+
+  var deltaTime = function() {
+    return (new Date()).getTime() - window.start;
+  }
+
+  var record = function(element) {
+    $(element).keyup(function() {
+      window.records.push({ time: deltaTime(), text: $(this).val() });
+    });
+  }
+
+  var apply = function(element) {
+    initRecord(element);
+    record(element);
+  }
+
+  return {
+    apply: apply
+  }
+})();
