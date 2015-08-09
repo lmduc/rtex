@@ -1,6 +1,6 @@
 - @contests.each do |contest|
   %div
     %strong= contest.title
-    = link_to "Do this test", new_records_path(contest_id: contest.id, step: 0)
+    = link_to "Do this test", new_record_path(contest_id: contest.id, step: 0)
 
 = link_to "Homepage", root_path

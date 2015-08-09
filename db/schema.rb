@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809045011) do
+ActiveRecord::Schema.define(version: 20150809083342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "contests", force: :cascade do |t|
     t.string   "title"
@@ -32,5 +33,14 @@ ActiveRecord::Schema.define(version: 20150809045011) do
   end
 
   add_index "problems", ["contest_id"], name: "index_problems_on_contest_id", using: :btree
+
+  create_table "records", force: :cascade do |t|
+    t.integer  "problem_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.hstore   "data"
+  end
+
+  add_index "records", ["problem_id"], name: "index_records_on_problem_id", using: :btree
 
 end

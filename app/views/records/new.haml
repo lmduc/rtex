@@ -1,0 +1,44 @@
+%h2= "Contest: #{@contest.title}"
+
+%h3= "Problem: #{@problem.title}"
+
+= form_for @record do |f|
+  .form-group
+    %strong= @problem.description
+
+  .form-group
+    %label Answer
+    %textarea.form-control#text_me{ rows: 7, style: 'width: 700px' }
+    %br
+    %br
+    %button.btn.btn-default#click_me Replay
+    %br
+    %br
+    %textarea.form-control#replay_me{ rows: 7, style: 'width: 700px' }
+
+  = f.submit "Next", class: 'btn btn-info'
+
+:javascript
+  $(function() {
+    Record.apply('#text_me');
+
+    $('#click_me').click(function() {
+      Replay.play('#replay_me');
+
+      return false;
+    });
+
+    $('form#new_record').submit(function() {
+      $.post("#{records_path}", {
+        step: "#{params[:step]}",
+        record: {
+          problem_id: "#{@problem.id}",
+          data: window.records
+        }
+      }).then(function() {
+        window.location = "#{new_record_path(contest_id: @contest.id, step: @step+1)}";
+      });
+
+      return false;
+    });
+  })

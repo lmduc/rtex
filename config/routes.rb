@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:index]
 
-  resources :contests, only: [:new, :create]
   resources :contests, only: [:new, :create, :index]
+
+  resources :records, only: [:new, :create]
 end
