@@ -4,7 +4,12 @@ class ContestsController < ApplicationController
   end
 
   def create
-    byebug
+    Contest.create(contest_params)
+    redirect_to contests_path
+  end
+
+  def index
+    @contests = Contest.all
   end
 
   private
