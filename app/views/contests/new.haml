@@ -1,16 +1,23 @@
-= form_for @contest do |f|
-  .field
-    = f.label :title
-    = f.text_field :title
+%h2 Contest
 
-  .field
-    = f.label :description
-    = f.text_area :description
+= form_for @contest, html: { class: 'form-horizontal' } do |f|
+  .form-group
+    = f.label :title, class: 'control-label col-sm-2'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :description, class: 'control-label col-sm-2'
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
 
   %h3 Problems
   = f.fields_for :problems do |problem|
     = render 'problem_fields', f: problem
-  .links
-    = link_to_add_association 'Add problem', f, :problems
 
-  = f.submit
+  .links
+    %br
+    = link_to_add_association 'Add problem', f, :problems, class: 'btn btn-default'
+
+  %br
+  = f.submit "Create", class: 'btn btn-info'
