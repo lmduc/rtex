@@ -1,0 +1,13 @@
+var Replay = (function() {
+  var play = function(element) {
+    window.records.forEach(function(record) {
+      setTimeout(function() {
+        $(element).val(record.text);
+      }, record.time);
+    })
+  }
+
+  return {
+    play: play
+  }
+})();

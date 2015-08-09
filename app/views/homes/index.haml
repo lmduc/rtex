@@ -1,20 +1,16 @@
-%textarea#text-me{ rows: 14, style: 'width: 700px' }
+%textarea#text_me{ rows: 14, style: 'width: 700px' }
 %br
 %br
-%button#click-me Replay
+%button#click_me Replay
 %br
 %br
-%textarea#replay-me{ rows: 14, style: 'width: 700px' }
+%textarea#replay_me{ rows: 14, style: 'width: 700px' }
 
 :javascript
   $(function() {
-    Record.apply('#text-me');
+    Record.apply('#text_me');
 
-    $('#click-me').click(function() {
-      window.records.forEach(function(record) {
-        setTimeout(function() {
-          $('#replay-me').val(record.text);
-        }, record.time);
-      })
+    $('#click_me').click(function() {
+      Replay.play('#replay_me')
     });
   })
