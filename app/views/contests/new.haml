@@ -1,0 +1,16 @@
+= form_for @contest do |f|
+  .field
+    = f.label :title
+    = f.text_field :title
+
+  .field
+    = f.label :description
+    = f.text_area :description
+
+  %h3 Problems
+  = f.fields_for :problems do |problem|
+    = render 'problem_fields', f: problem
+  .links
+    = link_to_add_association 'Add problem', f, :problems
+
+  = f.submit
