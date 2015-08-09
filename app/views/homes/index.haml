@@ -1,0 +1,25 @@
+%textarea#text-me{ rows: 14, style: 'width: 700px' }
+%br
+%br
+%button#click-me Replay
+%br
+%br
+%textarea#replay-me{ rows: 14, style: 'width: 700px' }
+
+:javascript
+  $(function() {
+    window.records = [];
+    window.start = (new Date()).getTime();
+
+    $('#text-me').keyup(function() {
+      window.records.push({ time: (new Date()).getTime() - window.start, text: $(this).val() });
+    });
+
+    $('#click-me').click(function() {
+      window.records.forEach(function(record) {
+        setTimeout(function() {
+          $('#replay-me').val(record.text);
+        }, record.time);
+      })
+    });
+  })
