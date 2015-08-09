@@ -13,6 +13,8 @@ gem 'haml-rails'
 
 gem 'cocoon'
 
+gem 'gon'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
