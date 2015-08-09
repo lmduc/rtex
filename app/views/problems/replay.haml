@@ -1,0 +1,19 @@
+%form
+  .form-group
+    %button.btn.btn-default#click_me Replay
+    %br
+    %br
+    %textarea.form-control#replay_me{ rows: 7, style: 'width: 700px' }
+
+= link_to "Back", :back
+
+:javascript
+  $(function() {
+    Record.set(gon.records);
+
+    $('#click_me').click(function() {
+      Replay.play('#replay_me');
+
+      return false;
+    });
+  })

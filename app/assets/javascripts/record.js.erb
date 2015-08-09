@@ -19,7 +19,12 @@ var Record = (function() {
     record(element);
   }
 
+  var set = function(data) {
+    window.records = data;
+  }
+
   return {
-    apply: apply
+    apply: apply,
+    set: set
   }
 })();

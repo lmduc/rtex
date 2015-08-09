@@ -3,7 +3,17 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:index]
 
-  resources :contests, only: [:new, :create, :index]
+  resources :contests, only: [:new, :create, :index] do
+    member do
+      get :replays
+    end
+  end
+
+  resources :problems, only: [] do
+    member do
+      get :replay
+    end
+  end
 
   resources :records, only: [:new, :create]
 end

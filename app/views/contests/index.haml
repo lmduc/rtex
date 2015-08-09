@@ -2,5 +2,6 @@
   %div
     %strong= contest.title
     = link_to "Do this test", new_record_path(contest_id: contest.id, step: 0)
+    = link_to "View record on this contest", replays_contest_path(contest) if contest.has_records?
 
 = link_to "Homepage", root_path

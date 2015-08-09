@@ -12,6 +12,11 @@ class ContestsController < ApplicationController
     @contests = Contest.all
   end
 
+  def replays
+    @contest = Contest.find(params[:id])
+    @problems = @contest.problems
+  end
+
   private
 
   def contest_params

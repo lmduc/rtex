@@ -1,0 +1,4 @@
+- @problems.each do |problem|
+  %div
+    %strong= problem.title
+    = link_to "View replay", replay_problem_path(problem) if problem.has_records?
