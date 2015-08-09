@@ -42,6 +42,7 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    cocoon (1.2.6)
     columnize (0.9.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -145,6 +146,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  cocoon
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
@@ -156,4 +158,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.4
+   1.10.6
